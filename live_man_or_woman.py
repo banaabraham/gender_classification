@@ -22,18 +22,17 @@ while(True):
     
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-	
-    try:
-        c = frame[y:y+h, x:x+w]
-        c = cv2.resize(c,(150,150))
-        c = c.reshape((1,150,150,3))
-        siap = model.predict(c)
-        if siap>0.9:
-            cv2.putText(frame,"WOMAN",(x,y),font,0.5,(0,255,0),2,cv2.LINE_AA)
-        elif siap<=0.9:
-            cv2.putText(frame,"MAN",(x,y),font,0.5,(0,0,255),2,cv2.LINE_AA)
-    except:
-        continue
+        try:
+            c = frame[y:y+h, x:x+w]
+            c = cv2.resize(c,(150,150))
+            c = c.reshape((1,150,150,3))
+            siap = model.predict(c)
+            if siap>0.9:
+                cv2.putText(frame,"WOMAN",(x,y),font,0.5,(0,255,0),2,cv2.LINE_AA)
+            elif siap<=0.9:
+                cv2.putText(frame,"MAN",(x,y),font,0.5,(0,0,255),2,cv2.LINE_AA)
+        except:
+            continue
 	
 	
     cv2.imshow('frame', frame)
