@@ -7,12 +7,8 @@ import pandas
 from keras import layers
 from keras import models
 from keras.optimizers import RMSprop
-from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
 import scipy
 import os
-import warnings
-warnings.filterwarnings("ignore", category=DeprecationWarning) 
-
 
 
 direktori = "directory that contains man and woman folder"
@@ -30,8 +26,6 @@ def imageToArrayData(Dir,c_code):
             img = crop_face(Dir+"\\"+name)
             y = cv2.resize(img,(150,150)) 
             y = y /255
-            #img = load_img(Dir+"\\"+name)
-            #y = scipy.misc.imresize(img_to_array(img), new_shape) / 255
             label.append(c_code)
             imageArray.append(y)
         except:
