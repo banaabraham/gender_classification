@@ -2,12 +2,6 @@ import cv2
 import matplotlib.pyplot as plt
 import os
 
-# Get user supplied values
-imagePath = "C:\\Users\\lenovo\\Pictures\\woman\\yes"
-
-
-
-
 def detect(image):
     cascPath = "haarcascade_frontalface_default.xml"
     
@@ -43,28 +37,3 @@ def crop_face(img_path):
         x, y, w, h = faces
         crop_img = image[y:y+h, x:x+w]
         return crop_img
-    
-"""
-for i in os.listdir(imagePath):
-    
-    crop = crop_face(imagePath+"\\"+i)
-    plt.imshow(crop)
-    plt.show()
-   
-   
-
-
-
-print("Found {0} faces!".format(len(faces)))
-
-
-# Draw a rectangle around the faces
-for (x, y, w, h) in faces:
-    cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
-
-
-crop_img = image[y:y+h, x:x+w]
-cv2.imshow("Faces found", image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-"""
