@@ -1,6 +1,3 @@
-# This script will detect faces via your webcam.
-# Tested with OpenCV3
-
 import cv2
 from keras import models
 import numpy as np
