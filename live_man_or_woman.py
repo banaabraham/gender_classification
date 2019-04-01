@@ -6,7 +6,7 @@ from keras import models
 import numpy as np
 
 font = cv2.FONT_HERSHEY_SIMPLEX
-cap = cv2.VideoCapture("C:\\Users\\lenovo\\Downloads\\Video\\habib.mp4")
+cap = cv2.VideoCapture("video path")
 model = models.load_model("gender_classs.h5")
 # Create the haar cascade
 faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
